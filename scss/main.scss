@@ -1,0 +1,8 @@
+// Modern SCSS using @use instead of @import
+@use 'abstracts' as *;         // Global access to variables/mixins
+@use 'vendors' as vendors;     // Namespaced access
+@use 'base' as base;
+@use 'components' as comp;
+@use 'layout' as layout;
+@use 'pages' as pages;
+@use 'themes' as themes;

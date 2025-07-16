@@ -1,0 +1,64 @@
+@use '../abstracts' as *;
+
+// Card component using BEM methodology
+.card {
+  background-color: $white;
+  border-radius: $border-radius;
+  overflow: hidden;
+  @include card-shadow;
+
+  &__image {
+    height: px-to-rem(200px);
+    position: relative;
+    overflow: hidden;
+    
+    // Fallback background gradient if image fails to load
+    background: linear-gradient(135deg, $primary-color, $accent-color, $secondary-color);
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: px-to-rem(80px);
+      height: px-to-rem(80px);
+      background-color: rgba($white, 0.3);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      border: 2px solid rgba($white, 0.5);
+      display: none;
+    }
+  }
+  
+  &__content {
+    padding: $spacing-md;
+    position: relative;
+    min-height: px-to-rem(180px);
+  }
+  
+  &__title {
+    color: $text-color;
+    font-size: $font-size-large;
+    margin-bottom: $spacing-sm;
+  }
+  
+  &__description {
+    color: $gray-medium;
+    margin-bottom: $spacing-md;
+    padding-bottom: px-to-rem(50px); // Simple fixed space for button
+  }
+  
+  &__button {
+    position: absolute;
+    bottom: px-to-rem(20px);
+    right: px-to-rem(20px);
+  }
+}

@@ -1,0 +1,47 @@
+@use '../abstracts' as *;
+
+// Header layout
+.header {
+  position: relative;
+  text-align: center;
+  padding: $spacing-xl $spacing-md;
+  background: linear-gradient(135deg, rgba($primary-color, 0.8), rgba($accent-color, 0.8));
+  box-shadow: 0 px-to-rem(4px) px-to-rem(12px) rgba(45, 90, 74, 0.2);
+  
+  // Background image with 50% transparency
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://balajitourpackages.in/wp-content/uploads/2023/03/Kerala-tourism.webp') no-repeat center center;
+    background-size: cover;
+    opacity: 0.5; // 50% transparency
+    z-index: 1; // Above the base but below content
+  }
+  
+  // Ensure text content is above the background image
+  &__title,
+  &__subtitle {
+    position: relative;
+    z-index: 2;
+  }
+  
+  &__title {
+    font-size: $font-size-xlarge;
+    color: $white;
+    margin-bottom: $spacing-sm;
+    text-shadow: px-to-rem(2px) px-to-rem(2px) px-to-rem(4px) rgba(0, 0, 0, 0.3);
+    font-weight: 700;
+  }
+  
+  &__subtitle {
+    color: rgba($white, 0.9);
+    max-width: px-to-rem(600px);
+    margin: 0 auto;
+    font-size: 1.1rem;
+    text-shadow: px-to-rem(1px) px-to-rem(1px) px-to-rem(2px) rgba(0, 0, 0, 0.2);
+  }
+}

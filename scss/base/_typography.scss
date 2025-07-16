@@ -1,0 +1,11 @@
+@use '../abstracts' as *;
+
+// Typography styles
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: $spacing-sm;
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: $spacing-sm;
+}
