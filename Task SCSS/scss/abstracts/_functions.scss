@@ -1,0 +1,17 @@
+@use 'variables' as *;
+
+// Functions
+// Convert pixels to rem
+@function px-to-rem($px, $base-font-size: $font-size-base) {
+  @return ($px / $base-font-size) * 1rem;
+}
+
+// Legacy function for backwards compatibility
+@function rem($px, $base-font-size: $base-font-size-config) {
+  @return px-to-rem($px, $base-font-size);
+}
+
+// Calculate responsive spacing
+@function responsive-spacing($base-spacing, $multiplier: 1.2) {
+  @return $base-spacing * $multiplier;
+}
